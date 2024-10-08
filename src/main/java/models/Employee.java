@@ -3,43 +3,47 @@ package models;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "employees")
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "role")
-public class Employee {
+    @Entity
+    @Table(name = "employees")
+    @Inheritance(strategy = InheritanceType.JOINED)
+    @DiscriminatorColumn(name = "role")
+    public class Employee {
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        protected int id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected int id;
+        @Column(name = "name", nullable = false)
+        protected String name;
 
-    @Column(name = "name", nullable = false)
-    protected String name;
+        @Column(name = "SSN", nullable = false)
+        protected String SSN; // Social Security Number
 
-    @Column(name = "SSN", nullable = false)
-    protected String SSN; // socialSecurityNumber
+        @Column(name = "birth_date")
+        protected LocalDate birthDate;
 
-    protected LocalDate birthDate;
+        @Column(name = "password")
+        protected String password;
 
-    protected String password;
+        @Column(name = "hire_date")
+        protected LocalDate hireDate;
 
-    protected LocalDate hireDate;
+        @Column(name = "number_of_children")
+        protected int numberOfChildren;
 
-    protected int numberOfChildren;
+        @Column(name = "salary")
+        protected double salary;
 
-    protected double salary;
+        @Column(name = "email", unique = true, nullable = false)
+        protected String email;
 
-    @Column(name = "email", unique = true, nullable = false)
-    protected String email;
+        @Column(name = "phone")
+        protected String phone;
 
-    @Column(name = "phone")
-    protected String phone;
+        @Column(name = "department")
+        protected String department;
 
-    @Column(name = "department")
-    protected String department;
-
-    @Column(name = "position")
-    protected String position;
+        @Column(name = "position")
+        protected String position;
 
     // Constructeur par défaut
     public Employee() {}

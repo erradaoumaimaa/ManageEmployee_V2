@@ -45,10 +45,8 @@ import java.time.LocalDate;
         @Column(name = "position")
         protected String position;
 
-    // Constructeur par défaut
     public Employee() {}
 
-    // Constructeur avec paramètres
     public Employee(String name, String SSN, LocalDate birthDate, String password, LocalDate hireDate,
                     int numberOfChildren, double salary, String email, String phone, String department, String position) {
         this.name = name;

@@ -1,7 +1,9 @@
 package models;
+
 import javax.persistence.*;
 import java.time.LocalDate;
-
+import java.util.List;
+import models.JobApplication;
 @Entity
 @Table(name = "jobs")
 public class JobOffer {
@@ -26,7 +28,10 @@ public class JobOffer {
     private LocalDate expiryDate;
 
     @Column(name = "status", nullable = false)
-    private String status; // Example: Open, Closed, Pending
+    private String status;
+
+    @OneToMany(mappedBy = "jobOffer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<JobApplication> jobApplications;
 
     public JobOffer() {}
 
@@ -66,4 +71,16 @@ public class JobOffer {
     public String getStatus() { return status; }
 
     public void setStatus(String status) { this.status = status; }
+
+    public List<JobApplication> getJobApplications() {
+        return jobApplications;
+    }
+
+    public void setJobApplications(List<JobApplication> jobApplications) {
+        this.jobApplications = jobApplications;
+    }
+    public void addJobApplication(JobApplication application) {
+        this.jobApplications.add(application);
+        application.setJobOffer(this);
+    }
 }

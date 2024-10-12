@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-@WebServlet("/jobOffers")
 public class JobOfferController extends HttpServlet {
 
     private JobOfferService jobOfferService;

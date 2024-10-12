@@ -79,7 +79,7 @@
             <p><strong>Publication Date:</strong> ${jobOffer.publicationDate}</p>
             <p><strong>Expiry Date:</strong> ${jobOffer.expiryDate}</p>
             <p><strong>Status:</strong> ${jobOffer.status}</p>
-            <a href="jobOffers?action=apply&id=${jobOffer.id}" class="button">Apply</a>
+            <a href="applyJob?id=${jobOffer.id}" class="button">Apply</a>
             <div>
                 <a href="jobOffers?action=edit&id=${jobOffer.id}">Edit</a>
                 <a href="jobOffers?action=delete&id=${jobOffer.id}" onclick="return confirm('Are you sure?')">Delete</a>

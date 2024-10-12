@@ -9,6 +9,7 @@
         <class>models.Employee</class>
         <class>models.Admin</class>
         <class>models.Recruiter</class>
+        <class>models.JobOffer</class>
 
         <properties>
             <!-- JDBC Connection settings -->

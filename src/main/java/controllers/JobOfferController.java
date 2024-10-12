@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-@WebServlet("/jobOffers")
 public class JobOfferController extends HttpServlet {
 
     private JobOfferService jobOfferService;
@@ -69,14 +68,14 @@ public class JobOfferController extends HttpServlet {
     }
 
     private void listJobOffers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<JobOffer> jobOffers = jobOfferService.getAllJobOffers(); // Utiliser le service
+        List<JobOffer> jobOffers = jobOfferService.getAllJobOffers();
         request.setAttribute("jobOffers", jobOffers);
         request.getRequestDispatcher("/WEB-INF/views/jobOfferList.jsp").forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        JobOffer existingJobOffer = jobOfferService.getJobOfferById(id); // Utiliser le service
+        JobOffer existingJobOffer = jobOfferService.getJobOfferById(id);
         request.setAttribute("jobOffer", existingJobOffer);
         request.getRequestDispatcher("/WEB-INF/views/jobOfferForm.jsp").forward(request, response);
     }
